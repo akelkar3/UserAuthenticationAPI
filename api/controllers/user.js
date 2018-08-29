@@ -10,13 +10,15 @@ exports.user_signup = (req, res, next) => {
     .then(user => {
       if (user.length >= 1) {
         return res.status(409).json({
-          message: "Mail exists"
+          message: "Mail exists",
+          status: 409
         });
       } else {
         bcrypt.hash(req.body.password, 10, (err, hash) => {
           if (err) {
             return res.status(500).json({
-              error: err
+              error: err,
+              status: 500
             });
           } else {
             const user = new User({
@@ -29,13 +31,15 @@ exports.user_signup = (req, res, next) => {
               .then(result => {
                 console.log(result);
                 res.status(201).json({
-                  message: "User created"
+                  message: "User created",
+                  status: 201
                 });
               })
               .catch(err => {
                 console.log(err);
                 res.status(500).json({
-                  error: err
+                  error: err,
+                  status: 500
                 });
               });
           }
@@ -50,13 +54,15 @@ exports.user_login = (req, res, next) => {
     .then(user => {
       if (user.length < 1) {
         return res.status(401).json({
-          message: "Auth failed"
+          message: "Auth failed",
+          status: 401
         });
       }
       bcrypt.compare(req.body.password, user[0].password, (err, result) => {
         if (err) {
           return res.status(401).json({
-            message: "Auth failed"
+            message: "Auth failed",
+            status: 401
           });
         }
         if (result) {
@@ -72,18 +78,21 @@ exports.user_login = (req, res, next) => {
           );
           return res.status(200).json({
             message: "Auth successful",
-            token: token
+            token: token,
+            status: 200
           });
         }
         res.status(401).json({
-          message: "Auth failed"
+          message: "Auth failed",
+          status: 401
         });
       });
     })
     .catch(err => {
       console.log(err);
       res.status(500).json({
-        error: err
+        error: err,
+        status: 500
       });
     });
 };
@@ -93,13 +102,15 @@ exports.user_delete = (req, res, next) => {
     .exec()
     .then(result => {
       res.status(200).json({
-        message: "User deleted"
+        message: "User deleted",
+        status: 200
       });
     })
     .catch(err => {
       console.log(err);
       res.status(500).json({
-        error: err
+        error: err,
+        status: 500
       });
     });
 };
