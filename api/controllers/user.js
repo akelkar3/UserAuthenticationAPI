@@ -36,7 +36,7 @@ exports.user_signup = (req, res, next) => {
                 console.log(result);
                 res.status(201).json({
                   message: "User created",
-                  status: 201
+                  status: 200
                 });
               })
               .catch(err => {
