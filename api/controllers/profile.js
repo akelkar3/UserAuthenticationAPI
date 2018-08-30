@@ -7,13 +7,20 @@ module.exports.getProfile = function(req, res){
   const id=req.params.userId;
   if (!id) {
     res.status(401).json({
-      "message" : "UnauthorizedError: private profile"
+      "message" : "UnauthorizedError: private profile",
+      status:401
     });
   } else {
     User
       .findById(id)
       .exec(function(err, user) {
-        res.status(200).json(user);
+        res.status(200).json(
+        {
+            message: "Request successful",
+            user:user,
+            userId:id,
+            status: 200
+        })
       });
   }
 };
@@ -34,14 +41,22 @@ module.exports.editProfile = function(req,res){
     if(err){
       console.log(err);
       res.status(500).json({
-        error:err
+        error:err,
+        status:500
       });
     }else{
       console.log(result);
-      res.status(200).json(result);
-      console.log(result);
+      res.status(200).json(
+        {
+          message:"Request successful",
+          result,
+          userId:req.params.userId,
+          status:200,
+
+        });
+      //console.log(result);
     }
-    });
+  });
 
 };
 
