@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "e9a3b10d-17af-4520-8f82-63e1577b61ff",
+		"name": "Remote_APITest",
+		"description": "Remote_APITest on published server API instance",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "54.157.56.47:5000/user/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"johnDoe@uncc.edu\",\n\t\"password\": \"password\"\n\n}"
+				},
+				"url": {
+					"raw": "54.157.56.47:5000/user/login",
+					"host": [
+						"54",
+						"157",
+						"56",
+						"47"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"login"
+					]
+				},
+				"description": "login stub"
+			},
+			"response": []
+		},
+		{
+			"name": "54.157.56.47:5000/user/signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \n    \"email\": \"johnDoe@uncc.edu\",\n    \"password\": \"password\",\n    \"name\": \"JohnDoe\",\n    \"age\": 21,\n    \"weight\": 38,\n    \"address\": \"NC,USA\"\n}"
+				},
+				"url": {
+					"raw": "54.157.56.47:5000/user/signup",
+					"host": [
+						"54",
+						"157",
+						"56",
+						"47"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"signup"
+					]
+				},
+				"description": "signup stub"
+			},
+			"response": []
+		},
+		{
+			"name": "54.157.56.47:5000/user/profile/5b882ac6ff593e640af7ea91",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5Eb2VAdW5jYy5lZHUiLCJ1c2VySWQiOiI1Yjg4MmFjNmZmNTkzZTY0MGFmN2VhOTEiLCJpYXQiOjE1MzU2NTA2MDksImV4cCI6MTUzNTY1NDIwOX0.446ipgNyxUqQb6TAesnbObmcAPLpiZwtiqUeDZlEo-s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "54.157.56.47:5000/user/profile/5b882ac6ff593e640af7ea91",
+					"host": [
+						"54",
+						"157",
+						"56",
+						"47"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"profile",
+						"5b882ac6ff593e640af7ea91"
+					]
+				},
+				"description": "get profile stub"
+			},
+			"response": []
+		},
+		{
+			"name": "54.157.56.47:5000/user/profile/edit/5b882ac6ff593e640af7ea91",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5Eb2VAdW5jYy5lZHUiLCJ1c2VySWQiOiI1Yjg4MmFjNmZmNTkzZTY0MGFmN2VhOTEiLCJpYXQiOjE1MzU2NTA2MDksImV4cCI6MTUzNTY1NDIwOX0.446ipgNyxUqQb6TAesnbObmcAPLpiZwtiqUeDZlEo-s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"JohnDoe\",\n    \"age\": 21,\n    \"weight\": 40,\n    \"address\": \"NC,USA\",\n    \"__v\": 0\n}"
+				},
+				"url": {
+					"raw": "54.157.56.47:5000/user/profile/edit/5b882ac6ff593e640af7ea91",
+					"host": [
+						"54",
+						"157",
+						"56",
+						"47"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"profile",
+						"edit",
+						"5b882ac6ff593e640af7ea91"
+					]
+				},
+				"description": "Edit profile stub"
+			},
+			"response": []
+		}
+	]
+}
