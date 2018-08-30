@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Group3_InClass01</string>
+    <string name="label_email">Email</string>
+    <string name="labelPwd">Password :</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="btnsave">save</string>
+</resources>
