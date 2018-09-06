@@ -72,7 +72,7 @@ exports.user_login = (req, res, next) => {
         if (result) {
           const token = jwt.sign(
             { //payload
-              email: user[0].email,
+              //email: user[0].email,
               userId: user[0]._id
             },
             process.env.JWT_KEY, //private key
@@ -83,7 +83,7 @@ exports.user_login = (req, res, next) => {
           return res.status(200).json({
             message: "Auth successful",
             token: token,
-            userId:user[0]._id,
+           // userId:user[0]._id,
             status: 200
           });
         }

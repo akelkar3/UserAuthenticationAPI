@@ -10,9 +10,9 @@ router.post("/signup", UserController.user_signup);
 router.post("/login", UserController.user_login);
 
 // profile
-router.get("/profile/:userId",checkAuth, UserProfile.getProfile);
+router.get("/profile",checkAuth, UserProfile.getProfile);
 
-router.put("/profile/edit/:userId",checkAuth,UserProfile.editProfile);
+router.put("/profile/edit",checkAuth,UserProfile.editProfile);
 
 router.delete("/:userId", checkAuth, UserController.user_delete);
 

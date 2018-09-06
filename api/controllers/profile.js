@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 //get User profile
 module.exports.getProfile = function(req, res){
-  const id=req.params.userId;
+  const id=req.userData.userId;
   if (!id) {
     res.status(401).json({
       "message" : "UnauthorizedError: private profile"
@@ -13,14 +13,20 @@ module.exports.getProfile = function(req, res){
     User
       .findById(id)
       .exec(function(err, user) {
-        res.status(200).json(user);
+        res.status(200).json(
+        {
+        message:"Request successful",
+        user:user,
+        status:200
+        })
       });
   }
 };
 
 module.exports.editProfile = function(req,res){
+  const id=req.userData.userId;
   User.findByIdAndUpdate(
-    req.params.userId,
+    id,
     {
       $set:{
         name:req.body.name,
@@ -34,12 +40,17 @@ module.exports.editProfile = function(req,res){
     if(err){
       console.log(err);
       res.status(500).json({
-        error:err
+        error:err,
+        status:500
       });
     }else{
       console.log(result);
-      res.status(200).json(result);
-      console.log(result);
+      res.status(200).json({
+      message:"Request successful",
+      result,
+      status:200
+      });
+     // console.log(result);
     }
     });
 
