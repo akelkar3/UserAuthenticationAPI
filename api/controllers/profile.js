@@ -14,11 +14,11 @@ module.exports.getProfile = function(req, res){
       .findById(id)
       .exec(function(err, user) {
         res.status(200).json(
-        {user
-       // message:"Request successful",
+        user
+       // {message:"Request successful",
         //user:user,
-        //status:200
-        })
+        //status:200}
+        )
       });
   }
 };
@@ -45,11 +45,11 @@ module.exports.editProfile = function(req,res){
       });
     }else{
       console.log(result);
-      res.status(200).json({
+      res.status(200).json(
     //  message:"Request successful",
       result
       //status:200
-      });
+      );
      // console.log(result);
     }
     });
