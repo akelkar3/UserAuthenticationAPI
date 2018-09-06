@@ -1,0 +1,160 @@
+{
+	"info": {
+		"name": "UserAuthenticationAPI",
+		"_postman_id": "c96f3f06-c8fb-25e7-53ae-203661cbf8b1",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://18.223.110.166:5000/user/signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"prerana@gog.com\",\n\t\"password\":\"prerana123\",\n\t\"name\":\"prerana\",\n\t\"age\":27,\n\t\"weight\":67,\n\t\"address\":\"NC,USA\"\n}"
+				},
+				"url": {
+					"raw": "http://18.223.110.166:5000/user/signup",
+					"protocol": "http",
+					"host": [
+						"18",
+						"223",
+						"110",
+						"166"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"signup"
+					]
+				},
+				"description": "Sign up for New users"
+			},
+			"response": []
+		},
+		{
+			"name": "http://18.223.110.166:5000/user/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"prerana@gog.com\",\n\t\"password\":\"prerana123\"\n}"
+				},
+				"url": {
+					"raw": "http://18.223.110.166:5000/user/login",
+					"protocol": "http",
+					"host": [
+						"18",
+						"223",
+						"110",
+						"166"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"login"
+					]
+				},
+				"description": "Login to existing users "
+			},
+			"response": []
+		},
+		{
+			"name": "http://18.223.110.166:5000/user/profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YjkwYTk5NGQ0NzE2MTZkYzFmN2RhYjkiLCJpYXQiOjE1MzYyMDczNTksImV4cCI6MTUzNjIxMDk1OX0.hXiCUroud-_FMTKr1SwZ_3Ghv1wX6_rSG5zMZtrbe-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://18.223.110.166:5000/user/profile",
+					"protocol": "http",
+					"host": [
+						"18",
+						"223",
+						"110",
+						"166"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"profile"
+					]
+				},
+				"description": "Fetch Details of User profile"
+			},
+			"response": []
+		},
+		{
+			"name": "http://18.223.110.166:5000/user/profile/edit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YjkwYTk5NGQ0NzE2MTZkYzFmN2RhYjkiLCJpYXQiOjE1MzYyMDczNTksImV4cCI6MTUzNjIxMDk1OX0.hXiCUroud-_FMTKr1SwZ_3Ghv1wX6_rSG5zMZtrbe-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"prerana singh\",\n    \"age\": 27,\n    \"weight\": 65,\n    \"address\": \"NC,USA\"\n}"
+				},
+				"url": {
+					"raw": "http://18.223.110.166:5000/user/profile/edit",
+					"protocol": "http",
+					"host": [
+						"18",
+						"223",
+						"110",
+						"166"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"profile",
+						"edit"
+					]
+				},
+				"description": "Edit details of the user in profile"
+			},
+			"response": []
+		}
+	]
+}
