@@ -157,7 +157,7 @@ if (this.token == null)
                             Intent intent = new Intent(activity, WelcomeActivity.class);
                             intent.putExtra(MainActivity.KEY_TOKEN, getToken());
                             //intent.putExtra(MainActivity.KEY_NAME,getName());
-                           intent.putExtra(MainActivity.KEY_USERID,getuserId());
+                          // intent.putExtra(MainActivity.KEY_USERID,getuserId());
                             activity.startActivity(intent);
                             activity.finish();
                         }
@@ -479,7 +479,7 @@ if (this.token == null)
       //  token=this.token;
         final OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url(remoteIP+"/user/profile/"+userID)
+                .url(remoteIP+"/user/profile")
                 .addHeader("Authorization","BEARER "+token)
 
                 .build();
@@ -560,7 +560,7 @@ if (this.token == null)
                 .add("address", add)
                 .build();
         Request request = new Request.Builder()
-                .url(remoteIP+"/user/profile/edit/"+getuserId())
+                .url(remoteIP+"/user/profile/edit")
                 .addHeader("Authorization","BEARER "+getToken())
                 .put(formBody)
                 .build();

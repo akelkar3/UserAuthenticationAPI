@@ -27,7 +27,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         caller=new apiCalls();
         token =getIntent().getExtras().getString(MainActivity.KEY_TOKEN);
-        userID =getIntent().getExtras().get(MainActivity.KEY_USERID).toString();
+      //  userID =getIntent().getExtras().get(MainActivity.KEY_USERID).toString();
 
         Name= findViewById(R.id.proname);
         Age=findViewById(R.id.proage);
